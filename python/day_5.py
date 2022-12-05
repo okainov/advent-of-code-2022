@@ -10,9 +10,11 @@ def process_command(stacks, command):
     number, move_from, move_to = map(int, re.findall('\d+', command))
     move_to -= 1
     move_from -= 1
+    elems_to_add = []
     for i in range(number):
-        elem = stacks[move_from].pop()
-        stacks[move_to].append(elem)
+        elems_to_add.append(stacks[move_from].pop())
+    # Remove 'reversed' for part 1
+    stacks[move_to].extend(reversed(elems_to_add))
     print('Stacks after move')
     print(stacks)
 
@@ -57,4 +59,4 @@ if __name__ == '__main__':
     print(result)
 
     # First part answer:  ZSQVCCJLL
-    # Second part answer: 2479
+    # Second part answer: QZFJRWHGS
