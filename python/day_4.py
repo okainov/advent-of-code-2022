@@ -1,13 +1,5 @@
 import os
 
-
-def get_priority(c):
-    if c.islower():
-        return ord(c) - 96
-    else:
-        return ord(c) - 65 + 27
-
-
 if __name__ == '__main__':
     result = 0
     result_2 = 0
@@ -21,8 +13,10 @@ if __name__ == '__main__':
 
             if (from_1 >= from_2 and to_1 <= to_2) or (from_2 >= from_1 and to_2 <= to_1):
                 result += 1
+            if (from_1 >= from_2 and from_1 <= to_2) or (from_2 >= from_1 and from_2 <= to_1):
+                result_2 += 1
     print(result)
     print(result_2)
 
     # First part answer:  453
-    # Second part answer: 2479
+    # Second part answer: 919
