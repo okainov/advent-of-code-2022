@@ -44,12 +44,20 @@ if __name__ == '__main__':
     resolve_dirs(dirs, '')
 
     result = 0
+    size_used = sum(dirs[''])
+    currently_free = 70000000 - size_used
+    size_needed = 30000000 - currently_free
+    smallest_bigger_than_needed = 70000000
     for dir, sizes in dirs.items():
-        if sum(sizes) < 100000:
+        folder_size = sum(sizes)
+        if folder_size < 100000:
             result += sum(sizes)
+        if folder_size >= size_needed and folder_size < smallest_bigger_than_needed:
+            smallest_bigger_than_needed = folder_size
 
     print(dirs)
-    print(result)
+    print(f'Part 1: {result}')
+    print(f'Part 2: {smallest_bigger_than_needed}')
 
     # First part answer: 1648397
-    # Second part answer:
+    # Second part answer: 1815525
